@@ -3,19 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/steel3"
-
-    >
-
-
-
+    android:background="@drawable/steel3">
 
     <ImageView
         android:id="@+id/list_image"
         android:layout_width="64dp"
         android:layout_height="50dp"
-        android:layout_marginRight="30dp"
-        />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="30dp" />
 
     <TextView
         android:id="@+id/title"
@@ -28,9 +23,5 @@
         android:textColor="#040404"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:typeface="sans"
-        tools:text="dfdsg"
-        />
-
-
+        android:typeface="sans" />
 </LinearLayout>

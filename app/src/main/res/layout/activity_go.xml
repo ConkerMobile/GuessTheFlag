@@ -9,7 +9,6 @@
 
 
     <ImageView
-        android:id="@+id/cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
@@ -25,7 +24,6 @@
         android:src="@drawable/glow" />
 
     <LinearLayout
-        android:id="@+id/carGoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/border_go"
@@ -59,7 +57,6 @@
     </LinearLayout>
 
         <Button
-            android:id="@+id/learn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
