@@ -22,7 +22,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1219365158574831~8673428953" />
+            android:value="ca-app-pub-1219365158574831~3339219527" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

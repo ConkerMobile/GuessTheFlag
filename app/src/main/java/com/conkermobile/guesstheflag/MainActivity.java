@@ -79,6 +79,7 @@ public class MainActivity extends Activity {
         }
         logoDownloader imageTask = new logoDownloader();
         Bitmap carLogo = null;
+
         try {
             carLogo = imageTask.execute(flagUrl + countryCode.get(chosenCar).toLowerCase() + ".png").get();
         } catch (Exception e) {
@@ -316,7 +317,7 @@ public class MainActivity extends Activity {
             }
         });
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-1219365158574831/5503613787");
+        mInterstitialAd.setAdUnitId("ca-app-pub-1219365158574831/7050222069");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
