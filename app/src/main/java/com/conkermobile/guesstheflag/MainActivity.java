@@ -186,7 +186,7 @@ public class MainActivity extends Activity {
     private long mLastClickTime = 0;
 
     public void processCarChoice(View view){
-        if (correctQuestions+wrongQuestions >= 15 && questionsLeft == 0) {
+        if (correctQuestions+wrongQuestions >= 15 && questionsLeft <= 0) {
             seeReview();
         }
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
