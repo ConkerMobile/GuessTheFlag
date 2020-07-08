@@ -77,6 +77,9 @@ public class MainActivity extends Activity {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
+        else {
+            Log.i("admob", "ad not loaded, cannot show.");
+        }
         logoDownloader imageTask = new logoDownloader();
         Bitmap carLogo = null;
 
