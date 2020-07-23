@@ -16,12 +16,6 @@ public class FlagListActivity extends Activity {
 
     ListView flagsListView;
 
-    public void goBack(View view) {
-        Intent intent = new Intent(this, GoActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +25,11 @@ public class FlagListActivity extends Activity {
         final ListView list = findViewById(R.id.flagsListView);
         ArrayList<SubjectData> arrayList = new ArrayList<SubjectData>();
         for (int i=0; i<countryNames.size(); i++) {
-            arrayList.add(new SubjectData(countryNames.get(i), "https://raw.githubusercontent.com/hjnilsson/country-flags/master/png1000px/",flagUrl + countryCode.get(i).toLowerCase() + ".png"));
+            arrayList.add
+                    (new SubjectData
+                            (countryNames.get(i),
+                                    "https://raw.githubusercontent.com/hjnilsson/country-flags/master/png1000px/",
+                                    flagUrl + countryCode.get(i).toLowerCase() + ".png"));
         }
         CustomAdapter customAdapter = new CustomAdapter(this, arrayList);
         flagsListView.setAdapter(customAdapter);

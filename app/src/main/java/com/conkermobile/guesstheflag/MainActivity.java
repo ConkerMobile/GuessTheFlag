@@ -4,20 +4,12 @@ package com.conkermobile.guesstheflag;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.SystemClock;
+import android.os.*;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.*;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.plattysoft.leonids.ParticleSystem;
@@ -111,11 +103,10 @@ public class MainActivity extends Activity {
         correctTextView.setVisibility(View.VISIBLE);
         questionsLeftTextView.setVisibility(View.VISIBLE);
         textView.setVisibility(View.INVISIBLE);
+        newQuestion();
     }
     public synchronized void carChosen(View view) {
-        Log.i("carChosen", "clicked: "+view.getTag());
         if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-            Log.i("carChosen", "ignored: "+view.getTag().toString());
             return;
         }
         mLastClickTime = SystemClock.elapsedRealtime();
@@ -190,9 +181,6 @@ public class MainActivity extends Activity {
     private long mLastClickTime = 0;
 
     public void processCarChoice(View view){
-        if (correctQuestions+wrongQuestions >= 15 && questionsLeft <= 0) {
-            seeReview();
-        }
         if (view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
             textView.setVisibility(View.VISIBLE);
             questionsLeft = 15-(correctQuestions+wrongQuestions);
@@ -214,6 +202,10 @@ public class MainActivity extends Activity {
                     textView.setVisibility(View.INVISIBLE);
                 }
             }.start();
+            if (correctQuestions+wrongQuestions >= 15) {
+                countDownTimer.cancel();
+                seeReview();
+            }
             points += 5;
             questionsLeft -= 1;
             scoreTextView.setText(correctQuestions + " / 15");
@@ -288,7 +280,6 @@ public class MainActivity extends Activity {
         correctTextView = findViewById(R.id.correctTextView);
         correctTextView.setText("😀: 0");
         incorrectTextView.setText("😟: 0");
-        newQuestion();
         button0.setVisibility(View.VISIBLE);
         button1.setVisibility(View.VISIBLE);
         button2.setVisibility(View.VISIBLE);
@@ -300,6 +291,7 @@ public class MainActivity extends Activity {
         incorrectTextView.setVisibility(View.VISIBLE);
         questionsLeftTextView = findViewById(R.id.questionsLeftTextView);
         questionsLeftTextView.setVisibility(View.VISIBLE);
+        newQuestion();
 
 
         //DownloadTask task = new DownloadTask();
